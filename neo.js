@@ -19,6 +19,7 @@ module.exports = {
     connect,
     session,
     dropAll: 'MATCH (n) DETACH DELETE n',
+    follow: 'MERGE (user:User {id:$userID}) MERGE (user2:User {id: $user2Id}) MERGE (user2)-[:FOLLOWED]->(user)',
     purchase: 'MERGE (product:Product {id:$productId}) MERGE (user:User {id: $userId}) MERGE (user)-[:BOUGHT]->(product)',
     review: 'MERGE (product:Product {id:$productId}) MERGE (user:User {id:$userId}) MERGE (user)-[:REVIEWED {rating:$rating}]->(product)',
     // recommend products reviewers rated with 4 or 5 stars if you bought a product reviewed with 4 or 5 stars

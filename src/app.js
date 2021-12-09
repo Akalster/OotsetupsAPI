@@ -34,6 +34,9 @@ const userRoutes = require('./routes/user.routes')
 const productRoutes = require('./routes/product.routes')
 const reviewRoutes = require('./routes/review.routes')
 const recommendationRoutes = require('./routes/recommendation.routes')
+const glitchRoutes = require('./routes/glitch.routes')
+const stepRoutes = require('./routes/step.routes')
+const routeRoutes = require('./routes/route.routes')
 
 const errors = require('./errors')
 
@@ -41,6 +44,9 @@ app.use('/user', userRoutes)
 app.use('/product', productRoutes)
 app.use('/', reviewRoutes)
 app.use('/', recommendationRoutes)
+app.use('/glitch', glitchRoutes)
+app.use('/step', stepRoutes)
+app.use('/route', routeRoutes)
 
 // catch all not found response
 app.use('*', function(_, res) {

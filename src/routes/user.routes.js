@@ -6,6 +6,7 @@ const User = require('../models/user.model')() // note we need to call the model
 const CrudController = require('../controllers/crud')
 
 const UserCrudController = new CrudController(User)
+const userController = require('../controllers/user.controller')
 
 
 // create a user
@@ -22,5 +23,7 @@ router.put('/:id', UserCrudController.update)
 
 // remove a user
 router.delete('/:id', UserCrudController.delete)
+
+router.post('/:id/follow', userController.follow)
 
 module.exports = router
